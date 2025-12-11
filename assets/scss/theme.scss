@@ -1,0 +1,43 @@
+:root {
+  --theme-bg: #ffffff;
+  --theme-text: #1c1c1c;
+  --hover-color: #f5f5f5;
+  --button-bg: #1c1c1c;
+  --button-text: #ffffff;
+  --border: #1c1c1c;
+}
+
+.light-theme {
+  --theme-bg: #ffffff;
+  --theme-text: #1c1c1c;
+  --hover-color: #f5f5f5;
+  --button-bg: #1c1c1c;
+  --button-theme-bg:#1c1c1c;
+  --button-theme-text: #ffffff;
+  --button-text: #ffffff;
+  --border-card: #1c1c1c;
+  --bg-card: #f6f6f6;
+  --text-card: #1c1c1c;
+  --icon:#1c1c1c;
+}
+
+.dark-theme {
+  --theme-bg: #1c1c1c;
+  --theme-text: #ffffff;
+  --hover-color: #888;
+  --button-bg: #1c1c1c;
+  --button-theme-bg: #ffffff;
+  --button-theme-text: #1c1c1c;
+  --button-text: #ffffff;
+  --border-card: #1c1c1c;
+  --bg-card: #dcdcdc;
+  --text-card: #1c1c1c;
+  --icon:#ffffff;
+
+}
+
+html {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  font-family: "Open Sans", sans-serif;
+}

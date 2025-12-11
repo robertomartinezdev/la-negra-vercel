@@ -10,16 +10,40 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@nuxt/content": "3.9.0",
     "@nuxt/eslint": "1.12.1",
     "@nuxt/fonts": "0.12.1",
     "@nuxt/hints": "1.0.0-alpha.3",
-    "@nuxt/icon": "2.1.0",
     "@nuxt/image": "2.0.0",
     "@nuxt/scripts": "0.13.0",
     "@nuxt/test-utils": "3.21.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/i18n": "^10.2.1",
+    "@pinia/nuxt": "0.11.3",
+    "axios": "^1.13.2",
+    "nodemailer": "^7.0.11",
     "nuxt": "^4.2.2",
+    "nuxt-icons": "^4.0.0",
+    "pinia": "^3.0.4",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@nuxt/schema": "^4.2.2",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@types/nodemailer": "^7.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "nuxt-icon": "^0.5.0",
+    "prettier": "^3.7.4",
+    "sass": "^1.96.0",
+    "sass-embedded": "^1.96.0",
+    "sass-loader": "^10.5.2",
+    "typescript": "^5.9.3",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

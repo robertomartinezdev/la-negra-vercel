@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "day": 1,
+        "monthLocaleKey": "app.tour.months.jan",
+        "showTitleLocaleKey": "app.shows.nautilus.title",
+        "location": "Location 1",
+        "ticketsUrl": "https://example.com/tickets/show1",
+        "showUrl": "/shows/nautilus",
+        "month": 4,
+        "year": 2023
+    },
+    {
+        "id": 2,
+        "day": 15,
+        "monthLocaleKey": "app.tour.months.feb",
+        "showTitleLocaleKey": "app.shows.grass.title",
+        "location": "Location 2",
+        "ticketsUrl": "https://example.com/tickets/show2",
+        "showUrl": "/shows/pisarelcesped",
+        "month": 9,
+        "year": 2023
+    },
+    {
+        "id": 3,
+        "day": 10,
+        "monthLocaleKey": "app.tour.months.mar",
+        "showTitleLocaleKey": "app.shows.tenere.title",
+        "location": "Location 3",
+        "ticketsUrl": "https://example.com/tickets/show3",
+        "showUrl": "/shows/elarboldetenere",
+        "month": 7,
+        "year": 2023
+    },
+    {
+        "id": 3,
+        "day": 10,
+        "monthLocaleKey": "app.tour.months.sep",
+        "showTitleLocaleKey": "app.shows.clouds.title",
+        "location": "Location 4",
+        "ticketsUrl": "https://example.com/tickets/show3",
+        "showUrl": "/shows/enlasnubes",
+        "month": 12,
+        "year": 2023
+    }
+]

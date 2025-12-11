@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .show-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-card);
+    padding: 25px;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    position: relative;
+    top: 50px;
+  }
+  
+
+  
+  .show-timeline-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    color: var(--text-card);
+  }
+  .show-sinopsis {
+    text-align: justify;
+    color: var(--text-card);
+    line-height: 2;
+  }
+  
+  .icon-item {
+    color: var(--text-card);
+  }
+  
+  .show-teaser {
+    position: relative;
+    top: 50px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .dossier {
+    position: relative;
+    left: 2px;
+    margin-top: 10px;
+    color: var(--text-card);
+  }
+  
+  @media screen and (min-width: 1300px) {
+    .show-sinopsis {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
+  
+    .show-teaser {
+      width: 700px;
+      height: 500px;
+    }
+  }
