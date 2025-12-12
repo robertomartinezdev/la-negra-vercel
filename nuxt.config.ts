@@ -102,32 +102,21 @@ export default defineNuxtConfig({
         fit: 'contain',
         format: 'webp', // optimizado
       },
-      // Avatar circular
-      avatar: {
-        width: 40,
-        height: 40,
-        fit: 'cover',
-        format: 'webp'
+      // Portada
+        hero: {
+        width: 1200,      // ancho principal
+        height: 400,      // alto fijo
+        fit: 'cover',     // mantiene proporción y cubre el contenedor
+        format: 'webp',   // optimizado
       },
-      // Banner principal
-      banner: {
-        width: 1024,
-        height: 300,
-        fit: 'cover',
-        format: 'avif'
+      // Cartel
+      poster: {
+        width: 300,       // ancho base
+        height: 450,      // alto típico de cartel
+        fit: 'cover',     // cubre el contenedor sin deformar
+        format: 'webp',   // optimizado para web
+        quality: 80,      // buena calidad, tamaño reducido
       },
-      // Imagen responsiva de artículo
-      article: {
-        widths: [320, 640, 1024, 1440],
-        format: 'webp',
-        fit: 'contain'
-      },
-      // Imagen destacada pequeña
-      thumb: {
-        widths: [150, 300, 450],
-        format: 'webp',
-        fit: 'cover'
-      }
     }
   }
 })

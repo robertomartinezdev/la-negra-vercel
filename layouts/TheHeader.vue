@@ -1,4 +1,3 @@
-<!-- HEADER COMPLETO CON LOGOS ARREGLADOS -->
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { ref } from "vue";
@@ -50,10 +49,10 @@ const closeDropdownMenuShowsAndGoHome = () => {
                 :src="store.getCurrentTheme === 'light' ? '/logo-black.png' : '/logo-white.png'" 
                 preset="logo" 
                 alt="Logo de la compañía"
-                class="header-logo" 
+                class="logo"
+                @click="closeDropdownMenuShowsAndGoHome" 
               />
           </div>
-
           <!-- Menú Desktop -->
           <nav class="navs-desktop-wrapped">
             <NuxtLink
@@ -152,12 +151,6 @@ const closeDropdownMenuShowsAndGoHome = () => {
 </template>
 
 <style scoped lang="scss">
-
-.header-logo {
-  width: 120px;    /* debe coincidir con el preset */
-  height: auto;    /* mantiene proporción */
-  object-fit: contain;
-}
 
 .header-container {
   display: flex;

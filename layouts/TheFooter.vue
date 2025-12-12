@@ -3,67 +3,15 @@ import { Icon } from "@iconify/vue";
 
 const currentYear = new Date().getFullYear();
 
-const openPDF = () => {
-  const pdfUrl = "/ivc.pdf";
-  window.open(pdfUrl, "_blank");
-};
+// const openPDF = () => {
+//   const pdfUrl = "/ivc.pdf";
+//   window.open(pdfUrl, "_blank");
+// };
 </script>
 
 <template>
   <footer class="footer-wrapped">
     <!-- CONTENEDOR DE LOGOS -->
-    <div class="logos-wrapper">
-      <!-- Logo superior independiente -->
-      <div class="logo-top">
-        <div class="ivc-container" @click="openPDF">
-          <NuxtImg
-            class="footer-logo ivc-logo"
-            format="png"
-            src="/logo-ivc-white-new.png"
-            alt="Logo IVC"
-            sizes="(max-width: 768px) 120px, (max-width: 1300px) 130px, 340px"
-          />
-          <p class="ivc-text">
-            L'entitat Institut Valencià de Cultura (IVC) ha concedit una ajuda
-            de 64.441,54€ a La Negra Produce SL per a la realització de les
-            seues produccions teatrals de l'any 2025, així com la gira dels seus
-            espectacles anteriors, projectes de residència i activitats de
-            mediació. Tot això de conformitat amb el que és preveu en l’article
-            4 de la Llei 1/2022, de 13 d’abril, de la Generalitat, de
-            transparència i bon govern (DOGV 9323, 22.04.2022).
-          </p>
-        </div>
-      </div>
-
-      <!-- Logos en línea horizontal -->
-      <div class="logos-row">
-        <NuxtImg
-          class="footer-logo"
-          format="png"
-          src="/logo-union-europea-white.png"
-          alt="Logo Unión Europea"
-          sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
-        />
-
-        <NuxtImg
-          class="footer-logo"
-          format="png"
-          src="/logo-inaem-white.png"
-          alt="Logo INAEM"
-          sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
-
-        />
-
-        <NuxtImg
-          class="footer-logo"
-          format="png"
-          src="/logo-prtr-white.png"
-          alt="Logo PRTR"
-          sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
-        />
-      </div>
-    </div>
-
     <!-- SOCIAL -->
     <div class="social-media-container">
       <a

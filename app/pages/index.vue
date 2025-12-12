@@ -4,73 +4,43 @@ import { useNavigation } from '../../composables/useNavigation'
 
 const { goTo } = useNavigation()
 const { isMobile } = useResponsive()
+
+// Array de carteles
+const posters = [
+  { src: '/poster-clouds.jpg', route: '/shows/enlasnubes', format: 'jpg' },
+  { src: '/poster-nautilus.jpg', route: '/shows/nautilus', format: 'jpg' },
+  { src: '/poster-tenere.jpg', route: '/shows/elarboldetenere', format: 'webp', quality: 70 },
+  { src: '/poster-grass.jpg', route: '/shows/pisarelcesped', format: 'jpg' },
+]
 </script>
 
 <template>
   <section class="home-container">
-    <!-- Imagen de portada -->
-    <NuxtPicture
-      v-show="isMobile"
-      format="jpg"
-      src="/home.jpg"
-      fit="contain"
-      sizes="500px"
-    />
-    <NuxtPicture
-      v-show="!isMobile"
-      format="jpg"
-      src="/home.jpg"
-      fit="cover"
-      sizes="1200px"
-      height="400px"
+    <!-- Imagen de portada hero -->
+    <NuxtImg
+      :src="'/home.jpg'"
+      preset="hero"
+      :fit="isMobile ? 'contain' : 'cover'"
+      alt="Portada de la compañía"
+      class="hero"
     />
 
     <p class="home-text" v-text="$t('app.home.text')" />
 
     <div class="home-shows-container">
-      <!-- En las cards de shows usamos width fijo en desktop y 100% en mobile -->
-      <div @click="goTo('/shows/enlasnubes')" class="clickable-img">
-        <NuxtPicture
-          format="jpg"
-          src="/poster-clouds.jpg"
-          fit="cover"
-          sizes="(max-width: 1300px) 100vw, 300px"
-          width="300"
-          height="auto"
-        />
-      </div>
-
-      <div @click="goTo('/shows/nautilus')" class="clickable-img">
-        <NuxtPicture
-          format="jpg"
-          src="/poster-nautilus.jpg"
-          fit="cover"
-          sizes="(max-width: 1300px) 100vw, 300px"
-          width="300"
-          height="auto"
-        />
-      </div>
-
-      <div @click="goTo('/shows/elarboldetenere')" class="clickable-img">
-        <NuxtPicture
-          format="webp"
-          src="/poster-tenere.jpg"
-          fit="cover"
-          quality="70"
-          sizes="(max-width: 1300px) 100vw, 300px"
-          width="300"
-          height="auto"
-        />
-      </div>
-
-      <div @click="goTo('/shows/pisarelcesped')" class="clickable-img">
-        <NuxtPicture
-          format="jpg"
-          src="/poster-grass.jpg"
-          fit="cover"
-          sizes="(max-width: 1300px) 100vw, 300px"
-          width="300"
-          height="auto"
+      <!-- Carteles de shows -->
+      <div 
+        v-for="poster in posters" 
+        :key="poster.route" 
+        class="poster"
+        @click="goTo(poster.route)"
+      >
+        <NuxtImg
+          :src="poster.src"
+          preset="poster"
+          :format="poster.format || 'webp'"
+          :quality="poster.quality || 80"
+          alt="Poster de obra"
         />
       </div>
     </div>
@@ -82,6 +52,13 @@ const { isMobile } = useResponsive()
   display: flex;
   flex-direction: column;
   gap: 30px;
+  align-items: center;
+}
+
+.hero {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
 }
 
 .home-text {
@@ -96,15 +73,13 @@ const { isMobile } = useResponsive()
 .home-shows-container {
   display: grid;
   gap: 40px;
-}
-
-.clickable-img {
-  cursor: pointer;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
 }
 
 @media screen and (min-width: 1300px) {
   .home-shows-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* desktop: 2 columnas */
     gap: 100px;
   }
 }
