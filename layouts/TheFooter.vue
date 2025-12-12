@@ -90,10 +90,6 @@ const openPDF = () => {
   cursor: pointer;
 }
 
-.ivc-logo {
-  width: clamp(6rem, 26vw, 10rem);
-}
-
 .ivc-text {
   color: #fff;
   font-size: 12px; /* aumentado */
@@ -179,6 +175,9 @@ const openPDF = () => {
 
   .copy {
     font-size: 10px;
+  }
+  .ivc-logo {
+    width: 500px;
   }
 }
 </style>
