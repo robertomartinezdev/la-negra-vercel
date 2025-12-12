@@ -28,6 +28,12 @@ export default defineNuxtConfig({
       { code: 'en', iso: 'en-EN', file: 'en.json', name: 'English' },
       { code: 'val', iso: 'val-VAL', file: 'val.json', name: 'Valencià' },
     ],
+    strategy: 'prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    },
   },
   image: {
     dir: "public",
