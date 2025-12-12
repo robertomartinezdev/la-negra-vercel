@@ -3,46 +3,57 @@ import { Icon } from "@iconify/vue";
 
 const currentYear = new Date().getFullYear();
 
-// const openPDF = () => {
-//   const pdfUrl = "/ivc.pdf";
-//   window.open(pdfUrl, "_blank");
-// };
+const openPDF = () => {
+  const pdfUrl = "/ivc.pdf";
+  window.open(pdfUrl, "_blank");
+};
 </script>
 
 <template>
   <footer class="footer-wrapped">
-    <!-- CONTENEDOR DE LOGOS -->
+    <!-- LOGO IVC + TEXTO -->
+    <div class="logo-ivc-container" @click="openPDF">
+      <NuxtImg
+        class="logo ivc-logo"
+        format="png"
+        src="/logo-ivc-white-new.png"
+        alt="Logo IVC"
+        preset="logo"
+      />
+
+      <p class="ivc-text">
+        L'entitat Institut Valencià de Cultura (IVC) ha concedit una ajuda
+        de 64.441,54€ a La Negra Produce SL per a la realització de les
+        seues produccions teatrals de l'any 2025, així com la gira dels seus
+        espectacles anteriors, projectes de residència i activitats de
+        mediació. Tot això de conformitat amb el que és preveu en l’article
+        4 de la Llei 1/2022, de 13 d’abril, de la Generalitat, de
+        transparència i bon govern (DOGV 9323, 22.04.2022).
+      </p>
+    </div>
+
+    <!-- LOGOS -->
+    <div class="logos-container">
+      <NuxtImg class="logo" src="/logo-union-europea-white.png" preset="logo" />
+      <NuxtImg class="logo" src="/logo-inaem-white.png" preset="logo" />
+      <NuxtImg class="logo" src="/logo-prtr-white.png" preset="logo" />
+    </div>
+
     <!-- SOCIAL -->
     <div class="social-media-container">
-      <a
-        href="https://www.facebook.com/lanegraproduce/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://www.facebook.com/lanegraproduce/" target="_blank" rel="noopener noreferrer">
         <Icon class="icon-item" icon="entypo-social:facebook" :inline="true" />
       </a>
 
-      <a
-        href="https://www.instagram.com/lanegra_teatre"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://www.instagram.com/lanegra_teatre" target="_blank" rel="noopener noreferrer">
         <Icon class="icon-item" icon="fe:instagram" :inline="true" />
       </a>
 
-      <a
-        href="https://www.twitch.tv/lanegrateatro"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://www.twitch.tv/lanegrateatro" target="_blank" rel="noopener noreferrer">
         <Icon class="icon-item" icon="ion:logo-twitch" :inline="true" />
       </a>
 
-      <a
-        href="https://open.spotify.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">
         <Icon class="icon-item" icon="cib:spotify" :inline="true" />
       </a>
 
@@ -68,79 +79,54 @@ const currentYear = new Date().getFullYear();
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* LOGO IVC + TEXTO */
+.logo-ivc-container {
+  display: flex;
+  flex-direction: column; /* SIEMPRE columna */
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+
+.ivc-logo {
+  width: clamp(6rem, 26vw, 10rem);
+}
+
+.ivc-text {
+  color: #fff;
+  font-size: 12px; /* aumentado */
+  opacity: 0.87;
+  max-width: 650px;
+  line-height: 1.45;
+}
+
+/* LOGOS */
+.logos-container {
+  display: flex;
+  flex-direction: column; /* móvil */
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+@media screen and (min-width: 768px) {
+  .logos-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 26px;
+  }
+}
+
+/* ---------- SOCIAL ICONS ---------- */
+
 .icon-item,
 .contact,
 .copy {
   color: #ffffff;
   transition: all 0.25s ease;
 }
-
-.contact {
-  font-size: 9px;
-  font-weight: bold;
-  text-decoration: none;
-  opacity: 0.9;
-
-  &:hover {
-    opacity: 1;
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-  }
-}
-
-.copy {
-  font-size: 7px;
-  margin-top: 10px;
-  opacity: 0.6;
-}
-
-/* ---------- LOGOS ---------- */
-
-.logos-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 20px;
-}
-
-.ivc-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 15px;
-  cursor: pointer;
-}
-
-.ivc-text {
-  color: #ffffff;
-  font-size: 10px;
-  margin: 0;
-  opacity: 0.85;
-  max-width: 600px;
-}
-
-.logo-top {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.logos-row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-  padding: 0 10px;
-}
-
-.footer-logo {
-  width: clamp(5rem, 20vw, 9rem);
-  height: auto !important;
-  object-fit: contain;
-}
-
-/* ---------- SOCIAL ICONS ---------- */
 
 .social-media-container {
   display: flex;
@@ -157,10 +143,7 @@ const currentYear = new Date().getFullYear();
   width: 18px;
   height: 18px;
   opacity: 0.9;
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease,
-    filter 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 
   &:hover {
     opacity: 1;
@@ -169,52 +152,26 @@ const currentYear = new Date().getFullYear();
   }
 }
 
-/* ---------- MOBILE ---------- */
-@media screen and (max-width: 768px) {
-  .ivc-container {
-    flex-direction: column;
-    align-items: center;
-  }
+.contact {
+  font-size: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0.9;
 
-  .ivc-text {
-    text-align: center;
-    max-width: 100%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .social-media-container {
-    gap: 14px;
-  }
-
-  .icon-item {
-    width: 16px;
-    height: 16px;
-  }
-
-  .footer-logo {
-    width: clamp(4rem, 30vw, 7rem);
+  &:hover {
+    opacity: 1;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
   }
 }
 
-/* ---------- DESKTOP ---------- */
+.copy {
+  font-size: 9px;
+  margin-top: 10px;
+  opacity: 0.6;
+}
+
+/* DESKTOP grande */
 @media screen and (min-width: 1300px) {
-  .logos-row {
-    width: 1300px;
-  }
-
-  .footer-logo {
-    width: 340px;
-  }
-
-  .ivc-logo {
-    width: 290px;
-  }
-
-  .ivc-text {
-    font-size: 14px;
-  }
-
   .icon-item {
     width: 22px;
     height: 22px;

@@ -1,8 +1,14 @@
-.logo {
+.company {
   width: 120px;    /* debe coincidir con el preset */
   height: auto;    /* mantiene proporción */
   object-fit: contain;
   cursor: pointer;
+}
+
+.logo {
+  width: 120px;    /* debe coincidir con el preset */
+  height: auto;    /* mantiene proporción */
+  object-fit: contain;
 }
 
 .hero {

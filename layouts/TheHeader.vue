@@ -49,7 +49,7 @@ const closeDropdownMenuShowsAndGoHome = () => {
                 :src="store.getCurrentTheme === 'light' ? '/logo-black.png' : '/logo-white.png'" 
                 preset="logo" 
                 alt="Logo de la compañía"
-                class="logo"
+                class="company"
                 @click="closeDropdownMenuShowsAndGoHome" 
               />
           </div>

@@ -95,6 +95,13 @@ export default defineNuxtConfig({
       sizes: [40, 80, 120, 160, 240, 320, 480, 640, 768, 1024, 1280, 1440, 1920]
     },
     presets: {
+      // Logo Compañia
+      company: {
+        width: 120, // ancho fijo deseado
+        height: 40, // alto fijo o null si quieres mantener proporción
+        fit: 'contain',
+        format: 'webp', // optimizado
+      },
       // Logo
       logo: {
         width: 120, // ancho fijo deseado
