@@ -7,6 +7,10 @@ import BaseLocale from "../components/UI/base-locale/BaseLocale.vue";
 
 import { useThemeStore } from "../stores/useTheme";
 
+import { useNavigation } from '../composables/useNavigation'
+
+const { goTo } = useNavigation()
+
 const localePath = useLocalePath();
 
 const ROUTER_LIST_ITEMS = [
@@ -46,22 +50,20 @@ const closeDropdownMenuShows = () => {
       <template #header="{ isOpen, toggleAccordion }">
         <header class="header-container">
           <div class="header-logo-wrapped">
-            <NuxtLink
+            <div
               v-show="store.getCurrentTheme === 'light'"
               class="link-item"
-              :to="localePath('/')"
               @click="closeDropdownMenuShows"
             >
-              <NuxtImg format="png" src="/logo-black.png" sizes="100px" />
-            </NuxtLink>
-            <NuxtLink
+              <NuxtImg @click="goTo('/')" format="png" src="logo-black.png" sizes="100px" />
+            </div>
+            <div
               v-show="store.getCurrentTheme === 'dark'"
               class="link-item"
-              :to="localePath('/')"
               @click="closeDropdownMenuShows"
             >
-              <NuxtImg format="png" src="/logo-white.png" sizes="100px" />
-            </NuxtLink>
+              <NuxtImg @click="goTo('/')" format="png" src="logo-white.png" sizes="100px" />
+            </div>
           </div>
           <nav class="navs-desktop-wrapped">
             <NuxtLink
