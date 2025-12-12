@@ -31,11 +31,10 @@ export default defineNuxtConfig({
   },
   image: {
     dir: "public",
-    domains: ["https://setup-landing-page.firebaseapp.com"],
     provider: "ipx",
     inject: true,
     quality: 100,
-    format: ["jpg"],
+    format: ["jpg"]
   },
   googleFonts: {
     families: {
