@@ -69,7 +69,7 @@ const closeDropdownMenuShowsAndGoHome = () => {
                 class="header-logo"
                 format="png"
                 src="/logo-white.png"
-                width="35"
+                width="100"
                 height="auto"
               />
             </div>

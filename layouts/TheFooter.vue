@@ -21,9 +21,7 @@ const openPDF = () => {
             format="png"
             src="/logo-ivc-white-new.png"
             alt="Logo IVC"
-            sizes="(max-width: 768px) 200px, (max-width: 1300px) 280px, 320px"
-            width="320"
-            height="auto"
+            sizes="(max-width: 768px) 120px, (max-width: 1300px) 130px, 340px"
           />
           <p class="ivc-text">
             L'entitat Institut Valencià de Cultura (IVC) ha concedit una ajuda
@@ -45,8 +43,6 @@ const openPDF = () => {
           src="/logo-union-europea-white.png"
           alt="Logo Unión Europea"
           sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
-          width="340"
-          height="auto"
         />
 
         <NuxtImg
@@ -55,8 +51,7 @@ const openPDF = () => {
           src="/logo-inaem-white.png"
           alt="Logo INAEM"
           sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
-          width="340"
-          height="auto"
+
         />
 
         <NuxtImg
@@ -65,8 +60,6 @@ const openPDF = () => {
           src="/logo-prtr-white.png"
           alt="Logo PRTR"
           sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
-          width="340"
-          height="auto"
         />
       </div>
     </div>
@@ -260,7 +253,6 @@ const openPDF = () => {
 @media screen and (min-width: 1300px) {
   .logos-row {
     width: 1300px;
-    justify-content: space-between;
   }
 
   .footer-logo {
