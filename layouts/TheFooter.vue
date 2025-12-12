@@ -19,7 +19,7 @@ const openPDF = () => {
           <NuxtImg
             class="footer-logo ivc-logo"
             format="png"
-            src="logo-ivc-white-new.png"
+            src="/logo-ivc-white-new.png"
             alt="Logo IVC"
           />
           <p class="ivc-text">
@@ -39,19 +39,19 @@ const openPDF = () => {
         <NuxtImg
           class="footer-logo"
           format="png"
-          src="logo-union-europea-white.png"
+          src="/logo-union-europea-white.png"
           alt="Logo Unión Europea"
         />
         <NuxtImg
           class="footer-logo"
           format="png"
-          src="logo-inaem-white.png"
+          src="/logo-inaem-white.png"
           alt="Logo INAEM"
         />
         <NuxtImg
           class="footer-logo"
           format="png"
-          src="logo-prtr-white.png"
+          src="/logo-prtr-white.png"
           alt="Logo PRTR"
         />
       </div>

@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useWindowSize } from '@vueuse/core'
+import { useResponsive } from '../../composables/useResponsive'
 
-const { width } = useWindowSize()
-
-const isMobile = computed(() => width.value < 1300)
+const { isMobile } = useResponsive()
 const localePath = useLocalePath();
+
 </script>
 
 <template>
   <section class="home-container">
-    <!-- Mobile -->
     <NuxtPicture
       v-if="isMobile"
       format="jpg"
@@ -18,41 +15,36 @@ const localePath = useLocalePath();
       fit="contain"
       sizes="500px"
     />
-
-    <!-- Desktop -->
     <NuxtPicture
       v-else
       format="jpg"
       src="/home.jpg"
       fit="cover"
-      width="1125"
-      height="400"
-      sizes="1125px"
+      sizes="1200px"
+      height="400px"
     />
     <p class="home-text" v-text="$t('app.home.text')" />
     <div class="home-shows-container">
       <NuxtLink :to="localePath('/shows/enlasnubes')">
         <NuxtPicture
           format="jpg"
-          src="poster-clouds.jpg"
+          src="/poster-clouds.jpg"
           fit="cover"
           sizes="300px"
-          class="show-img"
         />
       </NuxtLink>
       <NuxtLink :to="localePath('/shows/nautilus')">
         <NuxtPicture
           format="jpg"
-          src="poster-nautilus.jpg"
+          src="/poster-nautilus.jpg"
           fit="contain"
           sizes="300px"
-          class="show-img"
         />
       </NuxtLink>
       <NuxtLink :to="localePath('/shows/elarboldetenere')">
         <NuxtPicture
           format="jpg"
-          src="poster-tenere.jpg"
+          src="/poster-tenere.jpg"
           fit="cover"
           sizes="300px"
           class="show-img"
@@ -61,7 +53,7 @@ const localePath = useLocalePath();
       <NuxtLink :to="localePath('/shows/pisarelcesped')">
         <NuxtPicture
           format="jpg"
-          src="poster-grass.jpg"
+          src="/poster-grass.jpg"
           fit="cover"
           sizes="300px"
           class="show-img"

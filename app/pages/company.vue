@@ -1,19 +1,25 @@
+<script setup lang="ts">
+import { useResponsive } from '../../composables/useResponsive'
+
+const { isMobile } = useResponsive()
+
+</script>
 <template>
   <section class="company-container">
     <NuxtPicture
+      v-if="isMobile"
       format="jpg"
-      src="company.jpg"
+      src="/company.jpg"
       fit="contain"
-      sizes="xs:100vw"
-      class="img-mobile"
+      sizes="500px"
     />
     <NuxtPicture
+      v-else
       format="jpg"
-      src="company.jpg"
+      src="/company.jpg"
       fit="cover"
-      sizes="lg:1200px"
+      sizes="1200px"
       height="400px"
-      class="img-desktop"
     />
     <h2 class="title-theme" v-text="$t('app.company.title').toUpperCase()" />
     <p class="company-text" v-text="$t('app.company.text')" />

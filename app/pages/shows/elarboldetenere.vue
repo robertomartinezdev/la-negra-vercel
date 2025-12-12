@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { useLocaleStore } from "../../../stores/useLocale";
+import { useResponsive } from '../../../composables/useResponsive'
+
+const { isMobile } = useResponsive()
 
 const store = useLocaleStore();
 
@@ -13,19 +16,19 @@ const openPDF = () => {
 <template>
   <section class="container">
     <NuxtPicture
+      v-if="isMobile"
       format="jpg"
       src="show-tenere.jpg"
       fit="contain"
-      sizes="xs:100vw"
-      class="img-mobile"
+      sizes="500px"
     />
     <NuxtPicture
+      v-else
       format="jpg"
       src="show-tenere.jpg"
       fit="cover"
-      sizes="lg:1125px"
+      sizes="1200px"
       height="400px"
-      class="img-desktop"
     />
     <article class="show-info-container" @click="openPDF">
       <h2 class="title-card">

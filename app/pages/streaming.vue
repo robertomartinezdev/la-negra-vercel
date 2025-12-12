@@ -1,5 +1,8 @@
 <!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <script setup lang="ts">
+import { useResponsive } from '../../composables/useResponsive'
+
+const { isMobile } = useResponsive()
 const tracks = [
   {
     name: "Tamino - Indigo Night",
@@ -38,18 +41,18 @@ const TWITCH_PRO =
   <section>
     <div>
       <NuxtPicture
+        v-if="isMobile"
         format="jpg"
-        src="streaming.png"
+        src="/streaming.png"
         fit="contain"
-        sizes="xs:400px"
-        class="img-mobile"
+        sizes="400px"
       />
       <NuxtPicture
+        v-else
         format="jpg"
-        src="streaming.png"
+        src="/streaming.png"
         fit="contain"
-        sizes="lg:800px"
-        class="img-desktop"
+        sizes="800px"
       />
       <p class="streaming-text" v-text="$t('app.streaming.text')" />
     </div>

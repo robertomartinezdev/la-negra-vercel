@@ -52,7 +52,7 @@ const closeDropdownMenuShows = () => {
               :to="localePath('/')"
               @click="closeDropdownMenuShows"
             >
-              <NuxtImg format="png" src="logo-black.png" sizes="100px" />
+              <NuxtImg format="png" src="/logo-black.png" sizes="100px" />
             </NuxtLink>
             <NuxtLink
               v-show="store.getCurrentTheme === 'dark'"
@@ -60,7 +60,7 @@ const closeDropdownMenuShows = () => {
               :to="localePath('/')"
               @click="closeDropdownMenuShows"
             >
-              <NuxtImg format="png" src="logo-white.png" sizes="100px" />
+              <NuxtImg format="png" src="/logo-white.png" sizes="100px" />
             </NuxtLink>
           </div>
           <nav class="navs-desktop-wrapped">
