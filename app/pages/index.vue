@@ -1,23 +1,33 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+
+const { width } = useWindowSize()
+
+const isMobile = computed(() => width.value < 1300)
 const localePath = useLocalePath();
 </script>
 
 <template>
   <section class="home-container">
+    <!-- Mobile -->
     <NuxtPicture
+      v-if="isMobile"
       format="jpg"
-      src="home.jpg"
+      src="/home.jpg"
       fit="contain"
-      sizes="xs:100vw"
-      class="img-mobile"
+      sizes="500px"
     />
+
+    <!-- Desktop -->
     <NuxtPicture
+      v-else
       format="jpg"
-      src="home.jpg"
+      src="/home.jpg"
       fit="cover"
-      sizes="lg:1125px"
-      height="400px"
-      class="img-desktop"
+      width="1125"
+      height="400"
+      sizes="1125px"
     />
     <p class="home-text" v-text="$t('app.home.text')" />
     <div class="home-shows-container">

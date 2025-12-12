@@ -21,6 +21,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^10.2.1",
     "@pinia/nuxt": "0.11.3",
+    "@vueuse/core": "^14.1.0",
     "axios": "^1.13.2",
     "nodemailer": "^7.0.11",
     "nuxt": "^4.2.2",

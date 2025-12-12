@@ -36,11 +36,9 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    dir: "public",
-    provider: "ipx",
     inject: true,
     quality: 100,
-    format: ["jpg"]
+    format: ["jpg", "png"]
   },
   googleFonts: {
     families: {
