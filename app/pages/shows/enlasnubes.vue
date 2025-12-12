@@ -13,14 +13,14 @@ const openPDF = () => {
 <template>
   <section class="container">
     <NuxtPicture
-      v-if="isMobile"
+      v-show="isMobile"
       format="jpg"
       src="/show-clouds.jpg"
       fit="contain"
       sizes="500px"
     />
     <NuxtPicture
-      v-else
+      v-show="!isMobile"
       format="jpg"
       src="/show-clouds.jpg"
       fit="cover"

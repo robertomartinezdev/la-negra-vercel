@@ -6,11 +6,9 @@ import BaseSwitchTheme from "../components/UI/base-switch-theme/BaseSwitchTheme.
 import BaseLocale from "../components/UI/base-locale/BaseLocale.vue";
 
 import { useThemeStore } from "../stores/useTheme";
-
 import { useNavigation } from '../composables/useNavigation'
 
 const { goTo } = useNavigation()
-
 const localePath = useLocalePath();
 
 const ROUTER_LIST_ITEMS = [
@@ -28,19 +26,16 @@ const ROUTER_SHOWS_LIST_ITEMS = [
 ];
 
 const hasShowsItems = ref<boolean>(false);
-
 const store = useThemeStore();
 
-const toggle = () => {
-  hasShowsItems.value = !hasShowsItems.value;
-};
+const toggle = () => { hasShowsItems.value = !hasShowsItems.value; };
+const openDropdownMenuShows = () => { hasShowsItems.value = true; };
+const closeDropdownMenuShows = () => { hasShowsItems.value = false; };
 
-const openDropdownMenuShows = () => {
-  hasShowsItems.value = true;
-};
-
-const closeDropdownMenuShows = () => {
+// Nuevo método para cerrar dropdown y volver al home
+const closeDropdownMenuShowsAndGoHome = () => {
   hasShowsItems.value = false;
+  goTo(localePath('/'));
 };
 </script>
 
@@ -49,22 +44,25 @@ const closeDropdownMenuShows = () => {
     <BaseAccordion>
       <template #header="{ isOpen, toggleAccordion }">
         <header class="header-container">
+          <!-- Logo -->
           <div class="header-logo-wrapped">
             <div
               v-show="store.getCurrentTheme === 'light'"
               class="link-item"
-              @click="closeDropdownMenuShows"
+              @click="closeDropdownMenuShowsAndGoHome"
             >
-              <NuxtImg @click="goTo('/')" format="png" src="logo-black.png" sizes="100px" />
+              <NuxtImg format="png" src="logo-black.png" sizes="100px" />
             </div>
             <div
               v-show="store.getCurrentTheme === 'dark'"
               class="link-item"
-              @click="closeDropdownMenuShows"
+              @click="closeDropdownMenuShowsAndGoHome"
             >
-              <NuxtImg @click="goTo('/')" format="png" src="logo-white.png" sizes="100px" />
+              <NuxtImg format="png" src="logo-white.png" sizes="100px" />
             </div>
           </div>
+
+          <!-- Menú Desktop -->
           <nav class="navs-desktop-wrapped">
             <NuxtLink
               v-for="item in ROUTER_LIST_ITEMS"
@@ -75,6 +73,7 @@ const closeDropdownMenuShows = () => {
             >
               {{ $t(item.text) }}
             </NuxtLink>
+
             <nav class="dropdown" @mouseenter="openDropdownMenuShows">
               <a class="link-item">{{ $t("app.shows.title") }}</a>
               <div
@@ -94,6 +93,8 @@ const closeDropdownMenuShows = () => {
               </div>
             </nav>
           </nav>
+
+          <!-- Menú Mobile -->
           <div class="header-menu-wrapped">
             <BaseLocale />
             <BaseSwitchTheme />
@@ -118,6 +119,7 @@ const closeDropdownMenuShows = () => {
           </div>
         </header>
       </template>
+
       <template #content="{ isOpen, close }">
         <nav v-if="isOpen" class="nav-menu-wrapped">
           <NuxtLink
@@ -129,6 +131,7 @@ const closeDropdownMenuShows = () => {
           >
             {{ $t(item.text) }}
           </NuxtLink>
+
           <div class="nav-shows-wrapped" @click="toggle">
             <a class="link-item">{{ $t("app.shows.title") }}</a>
             <Icon
@@ -138,6 +141,7 @@ const closeDropdownMenuShows = () => {
               :vertical-flip="hasShowsItems"
             />
           </div>
+
           <div v-if="hasShowsItems" class="nav-menu-wrapped">
             <NuxtLink
               v-for="item in ROUTER_SHOWS_LIST_ITEMS"
@@ -168,13 +172,10 @@ const closeDropdownMenuShows = () => {
   gap: 5px;
 }
 
-.header-title-item {
-  font-size: var(--text-xl);
-}
-
 .navs-desktop-wrapped {
   display: none;
 }
+
 .header-menu-wrapped {
   display: inline-flex;
   align-items: center;
@@ -185,6 +186,7 @@ const closeDropdownMenuShows = () => {
   cursor: pointer;
   color: var(--icon);
 }
+
 .nav-menu-wrapped {
   display: flex;
   flex-direction: column;
@@ -193,6 +195,7 @@ const closeDropdownMenuShows = () => {
   gap: 25px;
   padding: 5px;
 }
+
 .nav-shows-wrapped {
   display: flex;
   flex-direction: row;
@@ -223,6 +226,7 @@ const closeDropdownMenuShows = () => {
     position: relative;
     display: inline-block;
   }
+
   .dropdown-menu {
     position: absolute;
     right: 0;
@@ -237,6 +241,7 @@ const closeDropdownMenuShows = () => {
     justify-content: center;
     gap: 15px;
   }
+
   .dropdown-menu > .link-item {
     cursor: pointer;
     padding: 0.25rem 0.5rem;
@@ -247,6 +252,7 @@ const closeDropdownMenuShows = () => {
   .dropdown-menu > .link-item:hover {
     background-color: var(--hover-color);
   }
+
   .nav-menu-wrapped {
     display: none;
   }

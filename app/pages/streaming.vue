@@ -41,14 +41,14 @@ const TWITCH_PRO =
   <section>
     <div>
       <NuxtPicture
-        v-if="isMobile"
+        v-show="isMobile"
         format="jpg"
         src="/streaming.png"
         fit="contain"
         sizes="400px"
       />
       <NuxtPicture
-        v-else
+        v-show="!isMobile"
         format="jpg"
         src="/streaming.png"
         fit="contain"

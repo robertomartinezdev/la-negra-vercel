@@ -21,6 +21,9 @@ const openPDF = () => {
             format="png"
             src="/logo-ivc-white-new.png"
             alt="Logo IVC"
+            sizes="(max-width: 768px) 200px, (max-width: 1300px) 280px, 320px"
+            width="320"
+            height="auto"
           />
           <p class="ivc-text">
             L'entitat Institut Valencià de Cultura (IVC) ha concedit una ajuda
@@ -41,18 +44,29 @@ const openPDF = () => {
           format="png"
           src="/logo-union-europea-white.png"
           alt="Logo Unión Europea"
+          sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
+          width="340"
+          height="auto"
         />
+
         <NuxtImg
           class="footer-logo"
           format="png"
           src="/logo-inaem-white.png"
           alt="Logo INAEM"
+          sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
+          width="340"
+          height="auto"
         />
+
         <NuxtImg
           class="footer-logo"
           format="png"
           src="/logo-prtr-white.png"
           alt="Logo PRTR"
+          sizes="(max-width: 768px) 120px, (max-width: 1300px) 200px, 340px"
+          width="340"
+          height="auto"
         />
       </div>
     </div>
@@ -150,7 +164,7 @@ const openPDF = () => {
 
 .ivc-container {
   display: flex;
-  flex-direction: row; /* Logo a la izquierda y texto a la derecha */
+  flex-direction: row;
   align-items: flex-start;
   gap: 15px;
   cursor: pointer;
@@ -158,13 +172,12 @@ const openPDF = () => {
 
 .ivc-text {
   color: #ffffff;
-  font-size: 10px; /* más pequeño que el logo */
+  font-size: 10px;
   margin: 0;
   opacity: 0.85;
   max-width: 600px;
 }
 
-/* Logos horizontales sin animación */
 .logo-top {
   display: flex;
   justify-content: center;
@@ -182,6 +195,7 @@ const openPDF = () => {
 
 .footer-logo {
   width: clamp(5rem, 20vw, 9rem);
+  height: auto !important;
   object-fit: contain;
 }
 
