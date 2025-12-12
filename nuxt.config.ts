@@ -96,7 +96,7 @@ export default defineNuxtConfig({
     },
     presets: {
       // Logo Compañia
-      company: {
+      lanegra: {
         width: 120, // ancho fijo deseado
         height: 40, // alto fijo o null si quieres mantener proporción
         fit: 'contain',
@@ -104,7 +104,7 @@ export default defineNuxtConfig({
       },
       // Logo
       logo: {
-        width: 120, // ancho fijo deseado
+        width: 250, // ancho fijo deseado
         height: 40, // alto fijo o null si quieres mantener proporción
         fit: 'contain',
         format: 'webp', // optimizado

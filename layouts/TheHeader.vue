@@ -47,9 +47,9 @@ const closeDropdownMenuShowsAndGoHome = () => {
           <div class="header-logo-wrapped">
               <NuxtImg 
                 :src="store.getCurrentTheme === 'light' ? '/logo-black.png' : '/logo-white.png'" 
-                preset="logo" 
+                preset="lanegra" 
                 alt="Logo de la compañía"
-                class="company"
+                class="lanegra"
                 @click="closeDropdownMenuShowsAndGoHome" 
               />
           </div>
@@ -152,6 +152,10 @@ const closeDropdownMenuShowsAndGoHome = () => {
 
 <style scoped lang="scss">
 
+.min-logo{
+  width: 150px;
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -205,6 +209,9 @@ const closeDropdownMenuShowsAndGoHome = () => {
 }
 
 @media screen and (min-width: 1300px) {
+  .min-logo{
+    width: 300px;
+  }
   .header-menu-item { display: none; }
 
   .navs-desktop-wrapped {

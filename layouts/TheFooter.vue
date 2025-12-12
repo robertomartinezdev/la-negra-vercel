@@ -14,7 +14,7 @@ const openPDF = () => {
     <!-- LOGO IVC + TEXTO -->
     <div class="logo-ivc-container" @click="openPDF">
       <NuxtImg
-        class="logo ivc-logo"
+        class="logo max-logo"
         format="png"
         src="/logo-ivc-white-new.png"
         alt="Logo IVC"
@@ -34,9 +34,9 @@ const openPDF = () => {
 
     <!-- LOGOS -->
     <div class="logos-container">
-      <NuxtImg class="logo" src="/logo-union-europea-white.png" preset="logo" />
-      <NuxtImg class="logo" src="/logo-inaem-white.png" preset="logo" />
-      <NuxtImg class="logo" src="/logo-prtr-white.png" preset="logo" />
+      <NuxtImg class="logo max-logo" src="/logo-union-europea-white.png" preset="logo" />
+      <NuxtImg class="logo max-logo" src="/logo-inaem-white.png" preset="logo" />
+      <NuxtImg class="logo max-logo" src="/logo-prtr-white.png" preset="logo" />
     </div>
 
     <!-- SOCIAL -->
@@ -176,8 +176,8 @@ const openPDF = () => {
   .copy {
     font-size: 10px;
   }
-  .ivc-logo {
-    width: 500px;
+  .max-logo {
+    width: 400px;
   }
 }
 </style>
