@@ -1,10 +1,10 @@
+<!-- HEADER COMPLETO CON LOGOS ARREGLADOS -->
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { ref } from "vue";
 import BaseAccordion from "../components/UI/base-accordion/BaseAccordion.vue";
 import BaseSwitchTheme from "../components/UI/base-switch-theme/BaseSwitchTheme.vue";
 import BaseLocale from "../components/UI/base-locale/BaseLocale.vue";
-
 import { useThemeStore } from "../stores/useTheme";
 import { useNavigation } from '../composables/useNavigation'
 
@@ -25,14 +25,13 @@ const ROUTER_SHOWS_LIST_ITEMS = [
   { text: "app.shows.grass.title", to: "/shows/pisarelcesped" },
 ];
 
-const hasShowsItems = ref<boolean>(false);
+const hasShowsItems = ref(false);
 const store = useThemeStore();
 
 const toggle = () => { hasShowsItems.value = !hasShowsItems.value; };
 const openDropdownMenuShows = () => { hasShowsItems.value = true; };
 const closeDropdownMenuShows = () => { hasShowsItems.value = false; };
 
-// Nuevo método para cerrar dropdown y volver al home
 const closeDropdownMenuShowsAndGoHome = () => {
   hasShowsItems.value = false;
   goTo('/');
@@ -44,21 +43,35 @@ const closeDropdownMenuShowsAndGoHome = () => {
     <BaseAccordion>
       <template #header="{ isOpen, toggleAccordion }">
         <header class="header-container">
-          <!-- Logo -->
+
+          <!-- LOGO con tamaño fijo y consistente -->
           <div class="header-logo-wrapped">
             <div
               v-show="store.getCurrentTheme === 'light'"
               class="link-item"
               @click="closeDropdownMenuShowsAndGoHome"
             >
-              <NuxtPicture format="png" src="logo-black.png" sizes="35px" />
+              <NuxtPicture
+                class="header-logo"
+                format="png"
+                src="/logo-black.png"
+                width="100"
+                height="auto"
+              />
             </div>
+
             <div
               v-show="store.getCurrentTheme === 'dark'"
               class="link-item"
               @click="closeDropdownMenuShowsAndGoHome"
             >
-              <NuxtPicture format="png" src="logo-white.png" sizes="35px" />
+              <NuxtPicture
+                class="header-logo"
+                format="png"
+                src="/logo-white.png"
+                width="35"
+                height="auto"
+              />
             </div>
           </div>
 
@@ -160,6 +173,13 @@ const closeDropdownMenuShowsAndGoHome = () => {
 </template>
 
 <style scoped lang="scss">
+.header-logo {
+  width: 100px !important;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -213,9 +233,7 @@ const closeDropdownMenuShowsAndGoHome = () => {
 }
 
 @media screen and (min-width: 1300px) {
-  .header-menu-item {
-    display: none;
-  }
+  .header-menu-item { display: none; }
 
   .navs-desktop-wrapped {
     display: flex;
@@ -242,23 +260,9 @@ const closeDropdownMenuShowsAndGoHome = () => {
     gap: 15px;
   }
 
-  .dropdown-menu > .link-item {
-    cursor: pointer;
-    padding: 0.25rem 0.5rem;
-    font-size: var(--text-base);
-    white-space: nowrap;
-  }
-
-  .dropdown-menu > .link-item:hover {
-    background-color: var(--hover-color);
-  }
-
-  .nav-menu-wrapped {
-    display: none;
-  }
-
-  .dropdown > .link-item {
-    cursor: default;
-  }
+  .dropdown-menu > .link-item { font-size: var(--text-base); }
+  .dropdown-menu > .link-item:hover { background-color: var(--hover-color); }
+  .nav-menu-wrapped { display: none; }
+  .dropdown > .link-item { cursor: default; }
 }
 </style>
