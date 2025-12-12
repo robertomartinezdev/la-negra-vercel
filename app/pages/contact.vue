@@ -11,7 +11,7 @@ import ContactForm from "../../components/ContactForm.vue";
           {{ $t("app.contact.distribution").toUpperCase() }}
         </h3>
         <a class="link-item" href="https://a-mas.net/" target="a_blank">
-          <NuxtImg format="png" src="logo-amas-black.png" sizes="60px" />
+          <NuxtImg format="png" src="/logo-amas-black.png" sizes="60px" />
         </a>
       </div>
       <a class="link-item" href="https://a-mas.net/contacto/" target="a_blank">
