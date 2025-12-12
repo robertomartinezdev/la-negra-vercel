@@ -32,7 +32,8 @@ useTheme();
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss"> 
+@use "~/assets/scss/main.scss";
 
 .page-enter-active,
 .page-leave-active {

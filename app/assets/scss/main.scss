@@ -1,6 +1,7 @@
-// @import "./fontsize.scss";
-// @import "./theme.scss";
-// @import "./shows.scss";
+@use "./fontsize";
+@use "./theme";
+@use "./shows";
+
 
 .app-main-container {
   display: flex;
