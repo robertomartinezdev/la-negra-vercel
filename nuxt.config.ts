@@ -50,4 +50,20 @@ export default defineNuxtConfig({
     storesDirs: ['./stores/**']  // Nuxt buscará todos los stores aquí
   },
   css: ['~/assets/scss/main.scss'],
+  runtimeConfig: {
+    // SERVER
+    service: process.env.SERVICE,
+    mailUser: process.env.MAIL_USER,
+    mailPassword: process.env.MAIL_PASSWORD,
+    mailContact: process.env.MAIL_CONTACT,
+    mailUserRobert: process.env.MAIL_USER_ROBERT,
+    mailPasswordRobert: process.env.MAIL_PASSWORD_ROBERT,
+    mailContactRobert: process.env.MAIL_CONTACT_ROBERT,
+
+    // CLIENT
+    public: {
+      baseLocalUrl: process.env.VITE_BASE_LOCAL_URL,
+      baseProUrl: process.env.VITE_BASE_PRO_URL
+    }
+  }
 })

@@ -1,13 +1,12 @@
-/* eslint-disable import/no-named-as-default-member */
 import nodemailer from "nodemailer";
 
 const config = useRuntimeConfig();
 
-const transpoter = nodemailer.createTransport({
-  service: config.SERVICE,
+const transporter = nodemailer.createTransport({
+  service: config.service,
   auth: {
-    user: config.MAIL_USER,
-    pass: config.MAIL_PASSWORD,
+    user: config.mailUser,
+    pass: config.mailPassword,
   },
 });
 
@@ -15,23 +14,17 @@ export default defineEventHandler(async (req) => {
   try {
     const body = await readBody(req);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const mail = transpoter.sendMail({
-      to: config.MAIL_CONTACT,
+    await transporter.sendMail({
+      to: config.mailContact,
       subject: body.subject,
       text: body.message,
       html: body.message,
     });
 
-    return {
-      name: body.name,
-      email: body.email,
-      subject: body.subject,
-      text: body.message,
-      html: body.message,
-      privacy: body.privacy,
-    };
-  } catch (error) {
-    sendError(req, createError({ statusCode: 400 }));
+    return { ...body };
+  } catch (err: unknown) {
+    // TypeScript no sabe qué es 'err', por eso 'unknown'
+    const error = err instanceof Error ? err : new Error("Unknown error");
+    sendError(req, createError({ statusCode: 400, message: error.message }));
   }
 });
