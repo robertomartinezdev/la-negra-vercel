@@ -1,38 +1,29 @@
 <script setup lang="ts">
-import { watchEffect } from "vue";
-import { useLocaleStore } from "../../../stores/useLocale";
+import { computed, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useLocaleStore } from '../../../stores/useLocale'
 
-const { locale } = useI18n();
+const { locale, setLocale, locales } = useI18n()
 
-const store = useLocaleStore();
+const currentLocale = computed({
+  get: () => locale.value,
+  set: (value: 'es' | 'en' | 'val') => {
+    setLocale(value)
+  }
+})
 
-watchEffect(() => {
-  store.locale = locale.value;
-});
+const store = useLocaleStore()
+
+watch(locale, (value) => {
+  store.setLocale(value)
+})
 </script>
 
 <template>
   <form class="select-locale-wrapped">
-    <label>
-      <input v-model="locale" type="radio" value="es" />
-      <span>
-        ES
-        <span class="hover-text">ES</span>
-      </span>
-    </label>
-    <label>
-      <input v-model="locale" type="radio" value="en" />
-      <span>
-        EN
-        <span class="hover-text">EN</span>
-      </span>
-    </label>
-    <label>
-      <input v-model="locale" type="radio" value="val" />
-      <span>
-        VAL
-        <span class="hover-text">VAL</span>
-      </span>
+    <label v-for="l in locales" :key="l.code">
+      <input v-model="currentLocale" type="radio" :value="l.code" />
+      <span>{{ l.code.toUpperCase() }}</span>
     </label>
   </form>
 </template>

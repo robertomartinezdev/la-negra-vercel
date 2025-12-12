@@ -22,11 +22,11 @@ export default defineNuxtConfig({
   ],
   i18n: {
     defaultLocale: "es",
-    langDir: "locales",
+    langDir: "locales/",
     locales: [
-      { code: "es", iso: "es-ES", file: "es.json", name: "Español" },
-      { code: "en", iso: "en-EN", file: "en.json", name: "English" },
-      { code: "val", iso: "val-VAL", file: "val.json", name: "Valencià" },
+      { code: 'es', iso: 'es-ES', file: 'es.json', name: 'Español' },
+      { code: 'en', iso: 'en-EN', file: 'en.json', name: 'English' },
+      { code: 'val', iso: 'val-VAL', file: 'val.json', name: 'Valencià' },
     ],
   },
   image: {

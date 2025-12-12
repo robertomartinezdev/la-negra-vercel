@@ -1,18 +1,8 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useLocaleStore = defineStore(
-  "locale", // ID obligatorio
-  {
-    state: (): { locale: string } => ({
-      locale: "es",
-    }),
-    getters: {
-      getLocale: (state) => state.locale,
-    },
-    actions: {
-      setLocale(newLocale: string) {
-        this.locale = newLocale
-      }
-    }
+export const useLocaleStore = defineStore('locale', {
+  state: () => ({ locale: 'es' }),
+  actions: {
+    setLocale(l: string) { this.locale = l }
   }
-);
+})
