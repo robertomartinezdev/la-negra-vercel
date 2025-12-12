@@ -35,7 +35,7 @@ const closeDropdownMenuShows = () => { hasShowsItems.value = false; };
 // Nuevo método para cerrar dropdown y volver al home
 const closeDropdownMenuShowsAndGoHome = () => {
   hasShowsItems.value = false;
-  goTo(localePath('/'));
+  goTo('/');
 };
 </script>
 
@@ -51,14 +51,14 @@ const closeDropdownMenuShowsAndGoHome = () => {
               class="link-item"
               @click="closeDropdownMenuShowsAndGoHome"
             >
-              <NuxtImg format="png" src="logo-black.png" sizes="100px" />
+              <NuxtPicture format="png" src="logo-black.png" sizes="35px" />
             </div>
             <div
               v-show="store.getCurrentTheme === 'dark'"
               class="link-item"
               @click="closeDropdownMenuShowsAndGoHome"
             >
-              <NuxtImg format="png" src="logo-white.png" sizes="100px" />
+              <NuxtPicture format="png" src="logo-white.png" sizes="35px" />
             </div>
           </div>
 
