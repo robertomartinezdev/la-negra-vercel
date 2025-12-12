@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useResponsive } from '../../composables/useResponsive'
+import { useNavigation } from '../../composables/useNavigation'
 
+const { goTo } = useNavigation()
 const { isMobile } = useResponsive()
 const localePath = useLocalePath();
-
 </script>
 
 <template>
@@ -25,40 +26,41 @@ const localePath = useLocalePath();
     />
     <p class="home-text" v-text="$t('app.home.text')" />
     <div class="home-shows-container">
-      <NuxtLink :to="localePath('/shows/enlasnubes')">
+      <div @click="goTo(localePath('/shows/enlasnubes'))" class="clickable-img">
         <NuxtPicture
           format="jpg"
           src="/poster-clouds.jpg"
           fit="cover"
           sizes="300px"
         />
-      </NuxtLink>
-      <NuxtLink :to="localePath('/shows/nautilus')">
+      </div>
+
+      <div @click="goTo(localePath('/shows/nautilus'))" class="clickable-img">
         <NuxtPicture
           format="jpg"
           src="/poster-nautilus.jpg"
-          fit="contain"
+          fit="cover"
           sizes="300px"
         />
-      </NuxtLink>
-      <NuxtLink :to="localePath('/shows/elarboldetenere')">
+      </div>
+
+      <div @click="goTo(localePath('/shows/elarboldetenere'))" class="clickable-img">
         <NuxtPicture
           format="jpg"
           src="/poster-tenere.jpg"
           fit="cover"
           sizes="300px"
-          class="show-img"
         />
-      </NuxtLink>
-      <NuxtLink :to="localePath('/shows/pisarelcesped')">
+      </div>
+
+      <div @click="goTo(localePath('/shows/pisarelcesped'))" class="clickable-img">
         <NuxtPicture
           format="jpg"
           src="/poster-grass.jpg"
           fit="cover"
           sizes="300px"
-          class="show-img"
         />
-      </NuxtLink>
+      </div>
     </div>
   </section>
 </template>

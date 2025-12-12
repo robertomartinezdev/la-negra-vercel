@@ -102,6 +102,10 @@
   transform: translateY(0);
 }
 
+.clickable-img{
+  cursor: pointer;
+}
+
 @media screen and (min-width: 1300px) {
 
   .hidden-app-footer {
