@@ -44,35 +44,14 @@ const closeDropdownMenuShowsAndGoHome = () => {
       <template #header="{ isOpen, toggleAccordion }">
         <header class="header-container">
 
-          <!-- LOGO con tamaño fijo y consistente -->
+          <!-- LOGO COMPAÑÍA -->
           <div class="header-logo-wrapped">
-            <div
-              v-show="store.getCurrentTheme === 'light'"
-              class="link-item"
-              @click="closeDropdownMenuShowsAndGoHome"
-            >
-              <NuxtPicture
-                class="header-logo"
-                format="png"
-                src="/logo-black.png"
-                width="100"
-                height="auto"
+              <NuxtImg 
+                :src="store.getCurrentTheme === 'light' ? '/logo-black.png' : '/logo-white.png'" 
+                preset="logo" 
+                alt="Logo de la compañía"
+                class="header-logo" 
               />
-            </div>
-
-            <div
-              v-show="store.getCurrentTheme === 'dark'"
-              class="link-item"
-              @click="closeDropdownMenuShowsAndGoHome"
-            >
-              <NuxtPicture
-                class="header-logo"
-                format="png"
-                src="/logo-white.png"
-                width="100"
-                height="auto"
-              />
-            </div>
           </div>
 
           <!-- Menú Desktop -->
@@ -173,11 +152,11 @@ const closeDropdownMenuShowsAndGoHome = () => {
 </template>
 
 <style scoped lang="scss">
+
 .header-logo {
-  width: 100px !important;
-  height: auto !important;
+  width: 120px;    /* debe coincidir con el preset */
+  height: auto;    /* mantiene proporción */
   object-fit: contain;
-  display: block;
 }
 
 .header-container {
