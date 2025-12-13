@@ -11,7 +11,7 @@ import ContactForm from "../../components/ContactForm.vue";
           {{ $t("app.contact.distribution").toUpperCase() }}
         </h3>
         <a class="link-item" href="https://a-mas.net/" target="a_blank">
-          <NuxtImg format="png" src="/logo-amas-black.png" sizes="60px" />
+          <NuxtImg class="logo max-logo" src="/logo-amas-black.png" preset="logo"/>
         </a>
       </div>
       <a class="link-item" href="https://a-mas.net/contacto/" target="a_blank">
@@ -22,6 +22,10 @@ import ContactForm from "../../components/ContactForm.vue";
 </template>
 
 <style scoped lang="scss">
+
+  .max-logo {
+    width: 80px;
+  }
 .distribution-container {
   display: flex;
   flex-direction: column;
@@ -40,6 +44,8 @@ import ContactForm from "../../components/ContactForm.vue";
   color: var(--text-card);
   line-height: 10px;
   letter-spacing: 3px;
+  padding-top: 15px;
+  padding-right: 39px;
 }
 
 .container {

@@ -15,7 +15,6 @@ const openPDF = () => {
     <div class="logo-ivc-container" @click="openPDF">
       <NuxtImg
         class="logo max-logo"
-        format="png"
         src="/logo-ivc-white-new.png"
         alt="Logo IVC"
         preset="logo"

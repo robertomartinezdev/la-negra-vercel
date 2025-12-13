@@ -16,7 +16,6 @@ const posters = [
 
 <template>
   <section class="home-container">
-    <!-- Imagen de portada hero -->
     <NuxtImg
       :src="'/home.jpg'"
       preset="hero"

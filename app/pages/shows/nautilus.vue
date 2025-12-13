@@ -15,20 +15,12 @@ const openPDF = () => {
 
 <template>
   <section class="container">
-    <NuxtPicture
-      v-show="isMobile"
-      format="jpg"
-      src="/show-nautilus.jpg"
-      fit="contain"
-      sizes="500px"
-    />
-    <NuxtPicture
-      v-show="!isMobile"
-      format="jpg"
-      src="/show-nautilus.jpg"
-      fit="cover"
-      sizes="1200px"
-      height="400px"
+    <NuxtImg
+      :src="'/show-nautilus.jpg'"
+      preset="hero"
+      :fit="isMobile ? 'contain' : 'cover'"
+      alt="Portada de nautilus"
+      class="hero"
     />
     <article class="show-info-container" @click="openPDF">
       <h2 class="title-card">

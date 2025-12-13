@@ -82,17 +82,12 @@ export default defineNuxtConfig({
   },
 
   // ============================
-  // Nuxt Image Config (Vercel Optimized)
+  // Nuxt Image Config (Vercel)
   // ============================
   image: {
-    domains: [
-      'avatars0.githubusercontent.com', // imágenes externas
-      'images.unsplash.com'
-    ],
+    domains: [],
     vercel: {
       formats: ['image/webp', 'image/avif'],
-      // Tamaños globales para optimización y densidades de pantalla
-      sizes: [40, 80, 120, 160, 240, 320, 480, 640, 768, 1024, 1280, 1440, 1920]
     },
     presets: {
       // Logo Compañia

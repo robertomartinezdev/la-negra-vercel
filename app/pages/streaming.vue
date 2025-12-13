@@ -40,19 +40,12 @@ const TWITCH_PRO =
 <template>
   <section>
     <div>
-      <NuxtPicture
-        v-show="isMobile"
-        format="jpg"
-        src="/streaming.png"
-        fit="contain"
-        sizes="400px"
-      />
-      <NuxtPicture
-        v-show="!isMobile"
-        format="jpg"
-        src="/streaming.png"
-        fit="contain"
-        sizes="800px"
+      <NuxtImg
+        :src="'/streaming.jpg'"
+        preset="hero"
+        :fit="isMobile ? 'contain' : 'cover'"
+        alt="Portada streaming"
+        class="hero"
       />
       <p class="streaming-text" v-text="$t('app.streaming.text')" />
     </div>
