@@ -2,43 +2,51 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+
   ssr: true,
   components: true,
-  
+
+  devtools: { enabled: true },
+
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
 
+  // ============================
+  // Vite
+  // ============================
   vite: {
-    plugins: [tsconfigPaths()]
+    plugins: [tsconfigPaths()],
   },
 
+  // ============================
+  // Modules
+  // ============================
   modules: [
-    "@nuxtjs/i18n",
-    "nuxt-icons",
-    "@nuxtjs/google-fonts",
-    "@nuxt/image",
-    "@pinia/nuxt",
+    '@nuxtjs/i18n',
+    'nuxt-icons',
+    '@nuxtjs/google-fonts',
+    '@nuxt/image',
+    '@pinia/nuxt',
   ],
 
   // ============================
   // I18n
   // ============================
   i18n: {
-    defaultLocale: "es",
-    langDir: "locales/",
+    defaultLocale: 'es',
+    langDir: 'locales/',
+    strategy: 'prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
     locales: [
       { code: 'es', iso: 'es-ES', file: 'es.json', name: 'Español' },
       { code: 'en', iso: 'en-EN', file: 'en.json', name: 'English' },
       { code: 'val', iso: 'val-VAL', file: 'val.json', name: 'Valencià' },
     ],
-    strategy: 'prefix',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    },
   },
 
   // ============================
@@ -46,16 +54,16 @@ export default defineNuxtConfig({
   // ============================
   googleFonts: {
     families: {
-      "Open+Sans": true,
+      'Open+Sans': true,
     },
-    display: "swap",
+    display: 'swap',
   },
 
   // ============================
   // Pinia
   // ============================
   pinia: {
-    storesDirs: ['./stores/**']
+    storesDirs: ['./stores/**'],
   },
 
   // ============================
@@ -77,48 +85,70 @@ export default defineNuxtConfig({
 
     public: {
       baseLocalUrl: process.env.VITE_BASE_LOCAL_URL,
-      baseProUrl: process.env.VITE_BASE_PRO_URL
-    }
+      baseProUrl: process.env.VITE_BASE_PRO_URL,
+    },
   },
 
   // ============================
-  // Nuxt Image Config (Vercel)
+  // Nuxt Image (optimizado SSR + Vercel)
   // ============================
   image: {
-    domains: [],
-    vercel: {
-      formats: ['image/webp', 'image/avif'],
+    // IPX en local, Vercel en prod
+    provider: process.env.NODE_ENV === 'production' ? 'vercel' : 'ipx',
+
+    // Formatos modernos
+    formats: ['avif', 'webp'],
+
+    // Calidad por defecto
+    quality: 80,
+
+    // Breakpoints reales
+    screens: {
+      xs: 360,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
     },
+
+    // Presets (intención visual, no layout)
     presets: {
-      // Logo Compañia
+      // Logo pequeño
       lanegra: {
-        width: 120, // ancho fijo deseado
-        height: 40, // alto fijo o null si quieres mantener proporción
+        width: 120,
+        height: 40,
         fit: 'contain',
-        format: 'webp', // optimizado
+        format: 'webp',
       },
-      // Logo
+
+      // Logo principal
       logo: {
-        width: 250, // ancho fijo deseado
-        height: 40, // alto fijo o null si quieres mantener proporción
+        width: 250,
+        height: 40,
         fit: 'contain',
-        format: 'webp', // optimizado
+        format: 'webp',
       },
-      // Portada
-        hero: {
-        width: 1200,      // ancho principal
-        height: 400,      // alto fijo
-        fit: 'cover',     // mantiene proporción y cubre el contenedor
-        format: 'webp',   // optimizado
+
+      // Imagen hero (LCP)
+      hero: {
+        fit: 'cover',
+        quality: 80,
       },
-      // Cartel
+
+      // Carteles / posters
       poster: {
-        width: 300,       // ancho base
-        height: 450,      // alto típico de cartel
-        fit: 'cover',     // cubre el contenedor sin deformar
-        format: 'webp',   // optimizado para web
-        quality: 80,      // buena calidad, tamaño reducido
+        fit: 'cover',
+        quality: 80,
       },
-    }
-  }
+    },
+  },
+
+  // ============================
+  // Nitro / Vercel
+  // ============================
+  nitro: {
+    preset: 'vercel',
+    compressPublicAssets: true,
+  },
 })
