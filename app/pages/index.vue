@@ -10,7 +10,7 @@ const { goTo } = useNavigation()
 const posters = [
   { src: '/poster-clouds.jpg', route: '/shows/enlasnubes', format: 'jpg' },
   { src: '/poster-nautilus.jpg', route: '/shows/nautilus', format: 'jpg' },
-  { src: '/poster-tenere.jpg', route: '/shows/elarboldetenere', format: 'webp', quality: 70 },
+  // { src: '/poster-tenere.jpg', route: '/shows/elarboldetenere', format: 'webp', quality: 70 },
   { src: '/poster-grass.jpg', route: '/shows/pisarelcesped', format: 'jpg' },
 ]
 </script>
@@ -36,7 +36,7 @@ const posters = [
           :src="poster.src"
           preset="poster"
           :format="poster.format || 'webp'"
-          :quality="poster.quality || 80"
+          :quality="80"
           alt="Poster de obra"
           width="300"
           height="450"
