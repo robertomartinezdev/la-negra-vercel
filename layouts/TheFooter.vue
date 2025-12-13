@@ -1,12 +1,23 @@
 <script lang="ts" setup>
 import { Icon } from "@iconify/vue";
 
+defineOptions({
+  name: 'TheFooter',
+})
+
 const currentYear = new Date().getFullYear();
 
 const openPDF = () => {
   const pdfUrl = "/ivc.pdf";
   window.open(pdfUrl, "_blank");
 };
+
+// Logos del footer (v-for)
+const logos = [
+  { src: '/logo-union-europea-white.png', alt: 'Logo Unión Europea' },
+  { src: '/logo-inaem-white.png', alt: 'Logo INAEM' },
+  { src: '/logo-prtr-white.png', alt: 'Logo PRTR' },
+];
 </script>
 
 <template>
@@ -14,10 +25,13 @@ const openPDF = () => {
     <!-- LOGO IVC + TEXTO -->
     <div class="logo-ivc-container" @click="openPDF">
       <NuxtImg
-        class="logo max-logo"
+        class="logo"
         src="/logo-ivc-white-new.png"
         alt="Logo IVC"
         preset="logo"
+        width="250"
+        loading="lazy"
+        fit="contain"
       />
 
       <p class="ivc-text">
@@ -31,11 +45,19 @@ const openPDF = () => {
       </p>
     </div>
 
-    <!-- LOGOS -->
+    <!-- LOGOS (v-for) -->
     <div class="logos-container">
-      <NuxtImg class="logo max-logo" src="/logo-union-europea-white.png" preset="logo" />
-      <NuxtImg class="logo max-logo" src="/logo-inaem-white.png" preset="logo" />
-      <NuxtImg class="logo max-logo" src="/logo-prtr-white.png" preset="logo" />
+      <NuxtImg
+        v-for="logo in logos"
+        :key="logo.alt"
+        class="logo"
+        :src="logo.src"
+        :alt="logo.alt"
+        preset="logo"
+        width="250"
+        loading="lazy"
+        fit="contain"
+      />
     </div>
 
     <!-- SOCIAL -->
@@ -81,29 +103,45 @@ const openPDF = () => {
 /* LOGO IVC + TEXTO */
 .logo-ivc-container {
   display: flex;
-  flex-direction: column; /* SIEMPRE columna */
+  flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 14px;
-  margin-bottom: 28px;
   cursor: pointer;
 }
 
 .ivc-text {
   color: #fff;
-  font-size: 12px; /* aumentado */
+  font-size: 13px;
+  line-height: 1.6;
   opacity: 0.87;
-  max-width: 650px;
-  line-height: 1.45;
+  max-width: 90%;
+  text-align: center;
+  margin: 0 auto 20px;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .ivc-text {
+    font-size: 14px;
+    max-width: 650px;
+    line-height: 1.65;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .ivc-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
 }
 
 /* LOGOS */
 .logos-container {
   display: flex;
-  flex-direction: column; /* móvil */
+  flex-direction: column;
   align-items: center;
   gap: 18px;
-  margin-bottom: 22px;
 }
 
 @media screen and (min-width: 768px) {
@@ -114,8 +152,12 @@ const openPDF = () => {
   }
 }
 
-/* ---------- SOCIAL ICONS ---------- */
+.logo {
+  object-fit: contain;
+  display: block;
+}
 
+/* SOCIAL ICONS */
 .icon-item,
 .contact,
 .copy {
@@ -127,7 +169,6 @@ const openPDF = () => {
   display: flex;
   gap: 20px;
   align-items: center;
-  padding: 12px 0;
 
   span {
     color: #555;
@@ -174,9 +215,6 @@ const openPDF = () => {
 
   .copy {
     font-size: 10px;
-  }
-  .max-logo {
-    width: 400px;
   }
 }
 </style>

@@ -1,27 +1,26 @@
-.lanegra{
-  width: 120px;    /* debe coincidir con el preset */
-  height: auto;    /* mantiene proporción */
+.lanegra {
+  width: 120px;
+  height: auto;
   object-fit: contain;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-
 .logo {
-  width: 250px;    /* debe coincidir con el preset */
-  height: auto;    /* mantiene proporción */
+  width: 250px;
+  height: auto;
   object-fit: contain;
 }
 
 .hero {
   width: 100%;
-  height: auto;  /* se ajusta automáticamente según el preset */
-  max-height: 400px; /* opcional para desktop */
-  object-fit: cover;  /* se puede cambiar dinámicamente según isMobile */
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
 }
 
 .poster {
   cursor: pointer;
-  width: 300px; /* coincide con preset poster */
+  width: 300px;
 }
 
 .poster img {

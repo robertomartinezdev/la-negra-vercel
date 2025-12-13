@@ -7,6 +7,10 @@ import BaseLocale from "../components/UI/base-locale/BaseLocale.vue";
 import { useThemeStore } from "../stores/useTheme";
 import { useNavigation } from '../composables/useNavigation'
 
+defineOptions({
+  name: 'TheHeader',
+})
+
 const { goTo } = useNavigation()
 const localePath = useLocalePath();
 
@@ -45,13 +49,15 @@ const closeDropdownMenuShowsAndGoHome = () => {
 
           <!-- LOGO COMPAÑÍA -->
           <div class="header-logo-wrapped">
-              <NuxtImg 
-                :src="store.getCurrentTheme === 'light' ? '/logo-black.png' : '/logo-white.png'" 
-                preset="lanegra" 
-                alt="Logo de la compañía"
-                class="lanegra"
-                @click="closeDropdownMenuShowsAndGoHome" 
-              />
+            <NuxtImg 
+              :src="store.getCurrentTheme === 'light' ? '/logo-black.png' : '/logo-white.png'" 
+              preset="lanegra"
+              alt="Logo de la compañía"
+              class="lanegra"
+              loading="eager"
+              decoding="async"
+              @click="closeDropdownMenuShowsAndGoHome"
+            />
           </div>
           <!-- Menú Desktop -->
           <nav class="navs-desktop-wrapped">
