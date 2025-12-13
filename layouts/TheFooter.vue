@@ -34,15 +34,7 @@ const logos = [
         fit="contain"
       />
 
-      <p class="ivc-text">
-        L'entitat Institut Valencià de Cultura (IVC) ha concedit una ajuda
-        de 64.441,54€ a La Negra Produce SL per a la realització de les
-        seues produccions teatrals de l'any 2025, així com la gira dels seus
-        espectacles anteriors, projectes de residència i activitats de
-        mediació. Tot això de conformitat amb el que és preveu en l’article
-        4 de la Llei 1/2022, de 13 d’abril, de la Generalitat, de
-        transparència i bon govern (DOGV 9323, 22.04.2022).
-      </p>
+      <p class="ivc-text">{{ $t("app.footer.ivc") }}</p>
     </div>
 
     <!-- LOGOS (v-for) -->
