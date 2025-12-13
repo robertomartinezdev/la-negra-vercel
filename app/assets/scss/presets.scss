@@ -11,13 +11,22 @@
   object-fit: contain;
 }
 
+/* Hero image */
 .hero {
   width: 100%;
   height: auto;
   max-height: 400px;
-  object-fit: cover;
+  object-fit: contain; /* valor por defecto para móviles */
 }
 
+/* Para pantallas grandes usamos cover */
+@media (min-width: 769px) {
+  .hero {
+    object-fit: cover;
+  }
+}
+
+/* Posters */
 .poster {
   cursor: pointer;
   width: 300px;

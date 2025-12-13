@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { useResponsive } from '../../composables/useResponsive'
 import { useNavigation } from '../../composables/useNavigation'
 
 defineOptions({
   name: 'Home',
 })
 const { goTo } = useNavigation()
-const { isMobile } = useResponsive()
 
 // Array de carteles
 const posters = [
@@ -22,7 +20,7 @@ const posters = [
     <NuxtImg
       src="/home.jpg"
       preset="hero"
-      :fit="isMobile ? 'contain' : 'cover'"
+      fit="cover" 
       alt="Portada de la compañía"
       class="hero"
       loading="eager"

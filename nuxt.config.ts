@@ -114,34 +114,11 @@ export default defineNuxtConfig({
 
     // Presets (intención visual, no layout)
     presets: {
-      // Logo pequeño
-      lanegra: {
-        width: 120,
-        height: 40,
-        fit: 'contain',
-        format: 'webp',
-      },
-
-      // Logo principal
-      logo: {
-        width: 250,
-        height: 40,
-        fit: 'contain',
-        format: 'webp',
-      },
-
-      // Imagen hero (LCP)
-      hero: {
-        fit: 'cover',
-        quality: 80,
-      },
-
-      // Carteles / posters
-      poster: {
-        fit: 'cover',
-        quality: 80,
-      },
-    },
+      lanegra: { fit: 'contain', format: 'webp', quality: 80 },
+      logo: { fit: 'contain', format: 'webp', quality: 80 },
+      poster: { fit: 'cover', format: 'webp', quality: 80 },
+      hero: { fit: 'cover', format: 'webp', quality: 80 },
+    }
   },
 
   // ============================
